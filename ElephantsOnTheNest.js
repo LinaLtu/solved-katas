@@ -1,3 +1,5 @@
+//https://www.codewars.com/kata/how-many-elephants-can-the-spider-web-hold
+
 function breakTheWeb(strength, lineLength) {
   let currentWeight = 0;
   let elephantCounter = 0;
