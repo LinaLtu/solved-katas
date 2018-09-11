@@ -1,8 +1,7 @@
 function decodeMessage(msg) {
-	console.log('trying to decode', msg)
 
-	let alphabet = "abcdefghijklmnopqrstuvwxyz";
-  let keyword = "price";
+const alphabet = "abcdefghijklmnopqrstuvwxyz";
+  const keyword = "price";
   let decodedMessage = '';
   let numberOfRotChars = 1;
 
@@ -10,8 +9,8 @@ function decodeMessage(msg) {
     decodedMessage = '';
 
     for (let i = 0; i < msg.length; i++) {
-      if (rotatedLetterIndex >= alphabet.length) {
       let rotatedLetterIndex = alphabet.indexOf(msg[i]) + numberOfRotChars;
+      if (rotatedLetterIndex >= alphabet.length) {
         rotatedLetterIndex -= alphabet.length;
       }
 
