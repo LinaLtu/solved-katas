@@ -1,13 +1,19 @@
 function decodeMessage(msg) {
 
-const alphabet = "abcdefghijklmnopqrstuvwxyz";
+  const alphabet = "abcdefghijklmnopqrstuvwxyz";
   const keyword = "price";
   let decodedMessage = '';
   let numberOfRotChars = 1;
 
-  while (decodedMessage.indexOf(keyword) === -1) {
-    decodedMessage = '';
+  function isWholeAlphabetChecked() {
+    return numberOfRotChars === alphabet.length;
+  }
 
+  function KeywordNotYetFount() {
+    return decodedMessage.indexOf(keyword) === -1
+  }
+
+  function rotateLettersInMessage() {
     for (let i = 0; i < msg.length; i++) {
       let rotatedLetterIndex = alphabet.indexOf(msg[i]) + numberOfRotChars;
       if (rotatedLetterIndex >= alphabet.length) {
@@ -16,12 +22,21 @@ const alphabet = "abcdefghijklmnopqrstuvwxyz";
 
       let rotatedLetter = alphabet[rotatedLetterIndex];
 
-      decodedMessage += rotatedLetter;
+       decodedMessage += rotatedLetter;
     }
+
+    return decodedMessage;
+  }
+
+  while (KeywordNotYetFount()) {
+
+    decodedMessage = '';
+
+    rotateLettersInMessage();
 
     console.log('message after rotation:', numberOfRotChars, decodedMessage)
 
-    if (numberOfRotChars === alphabet.length) {
+    if (isWholeAlphabetChecked()) {
       decodedMessage = 'Sorry, impossible to decrypt :(';
       break;
     }
