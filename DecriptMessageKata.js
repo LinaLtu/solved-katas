@@ -1,49 +1,51 @@
 function decodeMessage(msg) {
-  const alphabet = "abcdefghijklmnopqrstuvwxyz";
   const keyword = "price";
-  let decodedMessage = "";
-  let numberOfRotChars = 1;
+  const numberOfRotChars = 1;
 
-
-  function isWholeAlphabetChecked(numberOfRotChars, alphabet) {
-    return numberOfRotChars === alphabet.length;
+  function isWholeAlphabetChecked(numberOfRotChars) {
+    const maxRotation = 26;
+    return numberOfRotChars === maxRotation;
   }
 
-  function keywordNotYetFount(decodedMessage, keyword) {
+  function keywordNotYetFound(decodedMessage, keyword) {
     return decodedMessage.indexOf(keyword) === -1;
   }
 
-  function rotateLettersInMessage() {
+  function rotateLettersInMessage(message, numberOfCharactersToBeRotated) {
+    let decodedMessage = "";
 
-    for (let i = 0; i < msg.length; i++) {
-      let rotatedLetterIndex = alphabet.indexOf(msg[i]) + numberOfRotChars;
-      if (rotatedLetterIndex >= alphabet.length) {
-        rotatedLetterIndex -= alphabet.length;
+    for (let i = 0; i < message.length; i++) {
+      let letterCode = message.charCodeAt(i);
+
+      let rotatedLetterCode;
+
+      let decodedLetter = "";
+
+      rotatedLetterCode = letterCode + numberOfCharactersToBeRotated;
+
+      if (rotatedLetterCode === 123) {
+        decodedLetter = "a";
+      } else {
+        decodedLetter = String.fromCharCode(rotatedLetterCode);
       }
 
-      let rotatedLetter = alphabet[rotatedLetterIndex];
-
-      decodedMessage += rotatedLetter;
+      decodedMessage += decodedLetter;
     }
 
     return decodedMessage;
   }
 
-  while (keywordNotYetFount(decodedMessage, keyword)) {
-    decodedMessage = "";
+  let decodedMessage = msg;
 
-    rotateLettersInMessage();
+  while (keywordNotYetFound(decodedMessage, keyword)) {
+    decodedMessage = rotateLettersInMessage(decodedMessage, numberOfRotChars);
 
-    // console.log("message after rotation:", numberOfRotChars, decodedMessage);
-
-    if (isWholeAlphabetChecked(numberOfRotChars, alphabet)) {
+    if (isWholeAlphabetChecked(numberOfRotChars)) {
       decodedMessage = "Sorry, impossible to decrypt :(";
       break;
     }
-
-    numberOfRotChars++;
   }
-
+  
   return decodedMessage;
 }
 
