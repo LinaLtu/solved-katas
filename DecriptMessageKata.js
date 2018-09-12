@@ -4,11 +4,12 @@ function decodeMessage(msg) {
   let decodedMessage = "";
   let numberOfRotChars = 1;
 
-  function isWholeAlphabetChecked() {
+
+  function isWholeAlphabetChecked(numberOfRotChars, alphabet) {
     return numberOfRotChars === alphabet.length;
   }
 
-  function keywordNotYetFount() {
+  function keywordNotYetFount(decodedMessage, keyword) {
     return decodedMessage.indexOf(keyword) === -1;
   }
 
@@ -28,14 +29,14 @@ function decodeMessage(msg) {
     return decodedMessage;
   }
 
-  while (keywordNotYetFount()) {
+  while (keywordNotYetFount(decodedMessage, keyword)) {
     decodedMessage = "";
 
     rotateLettersInMessage();
 
     // console.log("message after rotation:", numberOfRotChars, decodedMessage);
 
-    if (isWholeAlphabetChecked()) {
+    if (isWholeAlphabetChecked(numberOfRotChars, alphabet)) {
       decodedMessage = "Sorry, impossible to decrypt :(";
       break;
     }
@@ -48,6 +49,6 @@ function decodeMessage(msg) {
 
 console.log(
   decodeMessage(
-    "ikhcxvmutgdknimykxlahluxzbgvhffngbvtmbhgehpxkzxetmhikbvxlurmabkmrixkvxgmhgmnxlwtrtgwkxwnvxfbedlatdxikbvxlurtmextlmhgxwheetk"
+    "uwtojhygfspwzuykwjxmtxtsrtsifdofszfwdymjsnsymqtbjwuwnhjxytybtitqqfwxfsiknkydhjsyxktwrjinzrxnejiljqfytxfsiymwjjitqqfwxfsiybjsydhjsyxktwqfwljljqfytx"
   )
 );
