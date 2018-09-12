@@ -16,9 +16,7 @@ function decodeMessage(msg) {
 
     for (let i = 0; i < message.length; i++) {
       let letterCode = message.charCodeAt(i);
-
       let rotatedLetterCode;
-
       let decodedLetter = "";
 
       rotatedLetterCode = letterCode + numberOfCharactersToBeRotated;
@@ -45,7 +43,7 @@ function decodeMessage(msg) {
       break;
     }
   }
-  
+
   return decodedMessage;
 }
 
