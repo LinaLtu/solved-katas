@@ -1,3 +1,5 @@
+//Kata: https://www.codewars.com/kata/can-i-have-cake/train/javascript
+
 const liquids = ['oil', 'milk'];
 const solids = ['sugar', 'flour'];
 
