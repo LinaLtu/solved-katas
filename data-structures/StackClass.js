@@ -2,9 +2,7 @@
 
 function Stack() {
   let collection = [];
-  this.print = () => {
-    console.log(collection);
-  };
+  this.print = () => console.log(collection);
 
   this.push = elem => collection.push(elem);
 
