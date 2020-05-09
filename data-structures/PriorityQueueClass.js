@@ -2,9 +2,7 @@
 
 function PriorityQueue() {
   this.collection = [];
-  this.printCollection = function() {
-    console.log(this.collection);
-  };
+  this.printCollection = () => console.log(this.collection);
 
   this.enqueue = elemArray => {
     let priorityIndex = elemArray[1];
