@@ -35,5 +35,3 @@ class Set {
     return this.values().length;
   }
 }
-
-let mySet = new Set();
