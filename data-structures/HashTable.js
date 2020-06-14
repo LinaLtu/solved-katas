@@ -1,3 +1,5 @@
+//https://www.freecodecamp.org/learn/coding-interview-prep/data-structures/create-a-hash-table
+
 let called = 0;
 
 const hash = string => {
@@ -13,7 +15,7 @@ class HashTable {
   constructor() {
     this.collection = {};
   }
-  
+
   add(key, value) {
     const hashedKey = hash(key);
 
