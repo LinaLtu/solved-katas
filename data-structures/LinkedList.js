@@ -25,11 +25,11 @@ class Node {
     add(element) {
       const node = new Node(element);
   
-      if (this.head === null) {
+      if(this.head === null) {
         this.head = node;
       } else {
         let currentNode = this.head;
-        while (currentNode.next) {
+        while(currentNode.next) {
           currentNode = currentNode.next;
         }
         currentNode.next = node;
@@ -41,23 +41,22 @@ class Node {
       let currentNode = this.head;
       let previousNode;
       let numberOfLoops = 0;
-      if (currentNode.element === element) {
+      if(currentNode.element === element) {
         this.head = currentNode.next;
       } else {
-        while (currentNode.element !== element) {
+        while(currentNode.element !== element) {
           previousNode = currentNode;
           currentNode = currentNode.next;
           numberOfLoops++;
         }
-        if (numberOfLoops < length) {
+
+        if(numberOfLoops < length) {
           previousNode.next = currentNode.next;
           length--;
         } else {
           return;
         }
-  
       }
-  
     };
   
     isEmpty() {
@@ -67,14 +66,15 @@ class Node {
     indexOf(element) {
       let index = 0;
       let currentElement = this.head;
-      if (currentElement.element === element) {
+      if(currentElement.element === element) {
         return index;
       } else {
-        while (currentElement && currentElement.element != element) {
+        while(currentElement && currentElement.element != element) {
           currentElement = currentElement.next;
           index++;
+
           // When element is not found in the linked list
-          if (currentElement.element != element && currentElement.next === null) {
+          if(currentElement.element != element && currentElement.next === null) {
             return -1
           }
         }
@@ -85,8 +85,8 @@ class Node {
     elementAt(index) {
       let currentElement = this.head;
       let counter = 0;
-      while (currentElement) {
-        if (counter === index) {
+      while(currentElement) {
+        if(counter === index) {
           return currentElement.element;
         }
         counter++;
